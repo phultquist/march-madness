@@ -1,0 +1,9 @@
+{
+  "devDependencies": {
+    "fs": "^0.0.1-security",
+    "ts-node": "^9.1.1"
+  },
+  "dependencies": {
+    "csv-parser": "^3.0.0"
+  }
+}
