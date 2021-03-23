@@ -1,15 +1,8 @@
-import * as fs from 'fs'
+import * as fs from 'fs';
 import csv from "csv-parser";
 import { School, Tournament, TournamentTeam, Game, GameTeam } from './structure'
 
-const run = async ():Promise<void> => {
-    let gamesData = await readData();
-    let games = getGames(gamesData);
-    let tournaments = getTournaments(games);
-    let schools = getSchools(tournaments);
-}
-
-const getGames = (fullData: any[]): Game[] => {
+export const getGames = (fullData: any[]): Game[] => {
     let games: Game[] = [];
     fullData.forEach(data => {
         let winner: GameTeam = {
@@ -37,8 +30,7 @@ const getGames = (fullData: any[]): Game[] => {
     return games;
 }
 
-
-const readData = (): Promise<any[]> => {
+export const readData = (): Promise<any[]> => {
     let allData = [];
     let readStream = fs.createReadStream("data.csv")
         .pipe(csv())
@@ -51,8 +43,7 @@ const readData = (): Promise<any[]> => {
     });
 }
 
-
-const getTournaments = (games: Game[]): Tournament[] => {
+export const getTournaments = (games: Game[]): Tournament[] => {
     let tournaments: Tournament[] = [];
 
     games.forEach(game => {
@@ -95,7 +86,7 @@ const getTournaments = (games: Game[]): Tournament[] => {
     return tournaments;
 }
 
-const getSchools = (tournaments: Tournament[]): School[] => {
+export const getSchools = (tournaments: Tournament[]): School[] => {
     let schools: School[] = [];
     tournaments.forEach(tournament => {
         tournament.teams.forEach(team => {
@@ -121,5 +112,3 @@ const toDate = (text: string): Date => {
 
     return new Date(year < 20 ? 2000 + year : year, month - 1, day)
 }
-
-run();
