@@ -1,4 +1,5 @@
 type Region = "West" | "East" | "Southeast" | "Midwest" | "National Semifinals" | "National Championship";
+type Round = "Round of 64" | "Round of 32" | "Sweet Sixteen" | "Elite Eight" | "National Semifinals" | "National Championship";
 
 export class School {
     name: string;
@@ -61,7 +62,7 @@ export interface Game {
     loser: GameTeam;
     date: Date;
     region: Region;
-    round: string;
+    round: Round;
     overtime?: string;
 }
 
