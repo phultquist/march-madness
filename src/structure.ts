@@ -1,6 +1,20 @@
-type Region = "West" | "East" | "Southeast" | "Midwest" | "National Semifinals" | "National Championship";
-type Round = "Round of 64" | "Round of 32" | "Sweet Sixteen" | "Elite Eight" | "National Semifinals" | "National Championship";
+export let regions = {
+    west: "West",
+    east: "East",
+    southeast: "Southeast",
+    midwest: "Midwest",
+    semifinals: "National Semifinals",
+    championship: "National Championship"
+};
 
+export let rounds = {
+    roundOf64: "Round of 64",
+    roundOf32: "Round of 32",
+    sweetSixteen: "Sweet Sixteen",
+    eliteEight: "Elite Eight",
+    semifinals: "National Semifinals",
+    championship: "National Championship"
+}
 export class School {
     name: string;
     private tournamentTeams: TournamentTeam[] = [];
@@ -61,14 +75,14 @@ export interface Game {
     winner: GameTeam;
     loser: GameTeam;
     date: Date;
-    region: Region;
-    round: Round;
+    region: string;
+    round: string;
     overtime?: string;
 }
 
 export interface TournamentTeam {
     games: Game[];
-    region: Region;
+    region: string;
     seed: number;
     name: string;
 }

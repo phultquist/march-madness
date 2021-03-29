@@ -2,7 +2,7 @@
   "compilerOptions": {
     "target": "esnext",
     "watch": true,
-    "lib": ["ES2017"],
+    "lib": ["ES2017", "dom"],
     "moduleResolution": "Node",
     "allowSyntheticDefaultImports": true,
     "module": "commonjs",
