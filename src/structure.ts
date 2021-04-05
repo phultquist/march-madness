@@ -66,11 +66,14 @@ export interface Game {
     overtime?: string;
 }
 
-export interface TournamentTeam {
+export class TournamentTeam {
     games: Game[];
     region: Region;
     seed: number;
     name: string;
+    constructor() {
+        
+    }
 }
 
 export class Tournament {
